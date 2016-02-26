@@ -1,2 +1,6 @@
-.idea/*
+.idea
 .directory
+.~lock.*
+vendor
+composer.phar
+
