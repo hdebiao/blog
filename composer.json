@@ -1,0 +1,7 @@
+{
+    "name": "blog",
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zendframework": "~2.5"
+    }
+}
