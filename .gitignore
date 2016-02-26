@@ -3,4 +3,5 @@
 .~lock.*
 vendor
 composer.phar
-
+*.lock
+config/autoload/local.php
