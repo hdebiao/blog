@@ -29,4 +29,12 @@ class Module
             ),
         );
     }
+    public function getControllerConfig()
+    {
+        return [
+            'abstract_factories' => [
+                'Application\Services\CommonControlAppAbstractFactory'
+            ]
+        ];
+    }
 }
