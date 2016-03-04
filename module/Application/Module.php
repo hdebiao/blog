@@ -1,16 +1,12 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
+
 
 namespace Application;
 
+use Zend\Db\Adapter\Adapter;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\ServiceManager\ServiceManager;
 
 class Module
 {
@@ -28,12 +24,30 @@ class Module
 
     public function getAutoloaderConfig()
     {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
+        return [
+            'Zend\Loader\StandardAutoloader' => [
+                'namespaces' => [
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
+    }
+
+    public function getServiceConfig()
+    {
+        return [
+            'factories' => [
+                'db' => function (ServiceManager $sm) {
+                    $c = $sm->get('config');
+                    return new Adapter($c['db']);
+                },
+                'redis' => function (ServiceManager $sm) {
+                    $c = $sm->get('config')['redis'];
+                    $redis = new \Redis();
+                    $redis->connect($c['host'], $c['port']);
+                    return $redis;
+                }
+            ]
+        ];
     }
 }

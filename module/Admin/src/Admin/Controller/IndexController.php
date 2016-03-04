@@ -10,6 +10,8 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+        $uid = $_COOKIE['userid'];
+        echo '欢迎您：' . $uid . '号用户！';
         return new ViewModel();
     }
 }
