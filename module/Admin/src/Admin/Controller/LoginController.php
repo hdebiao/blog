@@ -18,6 +18,10 @@ class LoginController extends AbstractActionController
         return new  ViewModel();
     }
 
+    /**
+     * 登录
+     * @return bool
+     */
     public function loginAction()
     {
         $username = $this->params()->fromPost('usernmae', '');
@@ -39,6 +43,18 @@ class LoginController extends AbstractActionController
         $domain_suffix = $this->getServiceLocator()->get('config')['domain_suffix'];
         setcookie('userid', $user['uid'], time() + 65555000, '/', $domain_suffix);
         $this->redirect()->toUrl('/admin');
+        return false;
+    }
+
+    /**
+     * 注销登录
+     * @return bool
+     */
+    public function logoutAction()
+    {
+        $domain_suffix = $this->getServiceLocator()->get('config')['domain_suffix'];
+        setcookie('userid', null, 0, '/', $domain_suffix);
+        header('location:/admin/login');
         return false;
     }
 
