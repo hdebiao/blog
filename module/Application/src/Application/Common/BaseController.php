@@ -10,6 +10,7 @@ class BaseController extends AbstractActionController
     public $config;
     public $dbs = [];
     public $tables = [];
+    public $redis;
 
     /**
      * @return array
@@ -17,8 +18,16 @@ class BaseController extends AbstractActionController
     public function getConfig()
     {
         if (null === $this->config) {
-            $this->config = $this->getServiceLocator()->get('config');
+            try {
+                $this->config = $this->getServiceLocator()->get('config');
+            } catch (\Exception $e) {
+                error_log(
+                    $e->getMessage() . PHP_EOL .
+                    $e->getTraceAsString() . PHP_EOL
+                );
+            }
         }
+
         return $this->config;
     }
 
@@ -29,7 +38,14 @@ class BaseController extends AbstractActionController
     public function getDB($db = 'db')
     {
         if (!array_key_exists($db, $this->dbs)) {
-            $this->dbs[$db] = $this->getServiceLocator()->get($db);
+            try {
+                $this->dbs[$db] = $this->getServiceLocator()->get($db);
+            } catch (\Exception $e) {
+                error_log(
+                    $e->getMessage() . PHP_EOL .
+                    $e->getTraceAsString() . PHP_EOL
+                );
+            }
         }
         return $this->dbs[$db];
     }
@@ -42,8 +58,33 @@ class BaseController extends AbstractActionController
     public function getTable($table, $db = 'db')
     {
         if (!array_key_exists($table, $this->tables)) {
-            $this->tables[$table] = new TableGateway($table, $this->getDB($db));
+            try {
+                $this->tables[$table] = new TableGateway($table, $this->getDB($db));
+            } catch (\Exception $e) {
+                error_log(
+                    $e->getMessage() . PHP_EOL .
+                    $e->getTraceAsString() . PHP_EOL
+                );
+            }
         }
         return $this->tables[$table];
+    }
+
+    /**
+     * @return \Redis
+     */
+    public function redis()
+    {
+        if (null === $this->redis) {
+            try {
+                $this->redis = $this->getServiceLocator()->get('redis');
+            } catch (\Exception $e) {
+                error_log(
+                    $e->getMessage() . PHP_EOL .
+                    $e->getTraceAsString() . PHP_EOL
+                );
+            }
+        }
+        return $this->redis;
     }
 }
