@@ -38,13 +38,13 @@ class Module
         return [
             'factories' => [
                 'db' => function (ServiceManager $sm) {
-                    $c = $sm->get('config');
+                    $c = (array)$sm->get('config');
                     return new Adapter($c['db']);
                 },
                 'redis' => function (ServiceManager $sm) {
-                    $c = $sm->get('config')['redis'];
+                    $c = (array)$sm->get('config');
                     $redis = new \Redis();
-                    $redis->connect($c['host'], $c['port']);
+                    $redis->connect($c['redis']['host'], $c['redis']['port']);
                     return $redis;
                 }
             ]

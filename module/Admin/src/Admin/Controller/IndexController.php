@@ -12,13 +12,6 @@ class IndexController extends BaseController
     {
         $uid = $_COOKIE['userid'];
         echo '欢迎您：' . $uid . '号嘉宾！';
-
-
-        $tuser = $this->getTable('blog_admin_user');
-        $user = $tuser->select(['uid' => $uid])->current();
-        var_dump($user);
-        $option = $this->getTable('blog_options')->select()->toArray();
-        var_dump($option);
         return new ViewModel();
     }
 }
