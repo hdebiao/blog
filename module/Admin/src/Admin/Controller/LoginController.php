@@ -3,10 +3,13 @@
 namespace  Admin\Controller;
 
 use Application\Common\BaseController;
-use Zend\Db\Adapter\Adapter;
-use Zend\Db\TableGateway\TableGateway;
 use Zend\View\Model\ViewModel;
 
+/**
+ * 博客后台登录模块
+ * Class LoginController
+ * @package Admin\Controller
+ */
 class LoginController extends BaseController
 {
     public function indexAction()
