@@ -87,4 +87,9 @@ class BaseController extends AbstractActionController
         }
         return $this->redis;
     }
+
+    protected static function jsonEncode($array, $pretty = true)
+    {
+        return json_encode($array, $pretty ? (JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) : 0);
+    }
 }

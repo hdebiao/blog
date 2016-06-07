@@ -4,7 +4,10 @@ namespace Application\Common;
 
 class HttpClient
 {
-    public static $valid = [];
+    public static $valid = [
+        'ua' => 'convee-admin-ua',
+        'secret' => '17e2721c65c87f0cfd73c5b65b3eaaaf'
+    ];
 
     public static function post($url, array $post = [])
     {
@@ -22,7 +25,7 @@ class HttpClient
             CURLOPT_VERBOSE => false,
             CURLOPT_USERAGENT => self::$valid['ua']
         );
-        $post['sign'] = UtilFunction::sign(self::$valid);//签名
+        $post['sign'] = UtilFunction::sign(self::$valid)['sign'];//签名
         $defaults[CURLOPT_POSTFIELDS] = $post;
         curl_setopt_array($ch, $defaults);
         $data = curl_exec($ch);
@@ -30,8 +33,7 @@ class HttpClient
             curl_close($ch);
             return $data;
         }
-        $error = curl_errno($ch);
-        error_log('curl错误码：' . $error);
+        error_log('curl错误：' . curl_error($ch));
         curl_close($ch);
         return false;
     }

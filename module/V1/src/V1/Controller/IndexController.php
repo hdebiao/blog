@@ -1,13 +1,22 @@
 <?php
 namespace V1\Controller;
-use Zend\Mvc\Controller\AbstractActionController;
+use Application\Common\BaseController;
 
-class IndexController extends AbstractActionController
+class IndexController extends BaseController
 {
 
     public function indexAction()
     {
         echo __CLASS__ . '\\' . __FUNCTION__;
+        return false;
+    }
+
+    public function jsonAction()
+    {
+        echo self::jsonEncode([
+            'name' => 'convee',
+            'email' => 'convee@sina.cn'
+        ]);
         return false;
     }
 }

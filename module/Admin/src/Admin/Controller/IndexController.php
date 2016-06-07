@@ -4,7 +4,7 @@
 namespace Admin\Controller;
 
 use Application\Common\BaseController;
-use Zend\View\Model\ViewModel;
+use Application\Common\HttpClient;
 
 /**
  * 后台首页
@@ -17,6 +17,9 @@ class IndexController extends BaseController
     {
         $uid = $_COOKIE['userid'];
         echo '欢迎您：' . $uid . '号嘉宾！';
-        return new ViewModel();
+
+        $url = $this->getConfig()['url'] . '/v1/index/json';
+        echo HttpClient::post($url, []);
+        return false;
     }
 }
