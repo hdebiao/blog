@@ -1,14 +1,14 @@
 <?php
 namespace Admin\Controller;
 
-use Application\Common\BaseController;
+use Application\Common\AdminBaseController;
 
 /**
  * 文件上传模块
  * Class BlogController
  * @package Admin\Controller
  */
-class UploadsController extends BaseController
+class UploadsController extends AdminBaseController
 {
     public function indexAction()
     {

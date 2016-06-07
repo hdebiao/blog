@@ -1,14 +1,14 @@
 <?php
 namespace Admin\Controller;
 
-use Application\Common\BaseController;
+use Application\Common\AdminBaseController;
 
 /**
  * 博客文章分类模块
  * Class CateController
  * @package Admin\Controller
  */
-class CateController extends BaseController
+class CateController extends AdminBaseController
 {
     public function indexAction()
     {

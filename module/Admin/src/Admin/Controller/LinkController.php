@@ -1,14 +1,14 @@
 <?php
 namespace Admin\Controller;
 
-use Application\Common\BaseController;
+use Application\Common\AdminBaseController;
 
 /**
  * 博客友情链接模块
  * Class LinkController
  * @package Admin\Controller
  */
-class LinkController extends BaseController
+class LinkController extends AdminBaseController
 {
     public function indexAction()
     {

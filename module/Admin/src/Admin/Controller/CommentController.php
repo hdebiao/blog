@@ -1,14 +1,14 @@
 <?php
 namespace Admin\Controller;
 
-use Application\Common\BaseController;
+use Application\Common\AdminBaseController;
 
 /**
  * 博客评论模块
  * Class BlogController
  * @package Admin\Controller
  */
-class CommentController extends BaseController
+class CommentController extends AdminBaseController
 {
     public function indexAction()
     {

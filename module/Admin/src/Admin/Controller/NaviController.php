@@ -1,14 +1,14 @@
 <?php
 namespace Admin\Controller;
 
-use Application\Common\BaseController;
+use Application\Common\AdminBaseController;
 
 /**
  * 博客导航模块
  * Class BlogController
  * @package Admin\Controller
  */
-class NaviController extends BaseController
+class NaviController extends AdminBaseController
 {
     public function indexAction()
     {

@@ -3,7 +3,7 @@
 
 namespace Admin\Controller;
 
-use Application\Common\BaseController;
+use Application\Common\AdminBaseController;
 use Application\Common\HttpClient;
 
 /**
@@ -11,7 +11,7 @@ use Application\Common\HttpClient;
  * Class IndexController
  * @package Admin\Controller
  */
-class IndexController extends BaseController
+class IndexController extends AdminBaseController
 {
     public function indexAction()
     {

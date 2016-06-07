@@ -2,7 +2,7 @@
 
 namespace  Admin\Controller;
 
-use Application\Common\BaseController;
+use Application\Common\AdminBaseController;
 use Zend\View\Model\ViewModel;
 
 /**
@@ -10,7 +10,7 @@ use Zend\View\Model\ViewModel;
  * Class LoginController
  * @package Admin\Controller
  */
-class LoginController extends BaseController
+class LoginController extends AdminBaseController
 {
     public function indexAction()
     {
