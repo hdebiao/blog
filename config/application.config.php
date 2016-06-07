@@ -10,7 +10,8 @@ return array(
     'modules' => array(
         'Application',
         'Admin',
-        'Blog'
+        'Blog',
+        'V1'
     ),
 
     // These are various options for the listeners attached to the ModuleManager

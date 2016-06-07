@@ -25,7 +25,7 @@ class LoginController extends BaseController
      * 登录
      * @return bool
      */
-    public function loginAction()
+    public function dologinAction()
     {
         $username = $this->params()->fromPost('usernmae', '');
         $password = $this->params()->fromPost('password', '');
@@ -43,6 +43,7 @@ class LoginController extends BaseController
             echo '密码不正确!';
             return false;
         }
+        $user = $user->getArrayCopy();
         $domain_suffix = $this->getConfig()['domain_suffix'];
         setcookie('userid', $user['uid'], time() + 65555000, '/', $domain_suffix);
         $this->redirect()->toUrl('/admin');
@@ -65,5 +66,6 @@ class LoginController extends BaseController
     {
         $tAdminUser = $this->getTable('blog_admin_user');
         return $tAdminUser->select(['username' => $username])->current();
+
     }
 }
