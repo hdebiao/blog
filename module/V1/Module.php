@@ -2,6 +2,7 @@
 
 namespace V1;
 
+use Application\Common\UtilFunction;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
@@ -23,7 +24,7 @@ class Module
                     exit('PERMISSION DENIED');
                 }
                 $valid = (array)$e->getApplication()->getServiceManager()->get('config')['valid'];
-                $v = static::sign($valid);
+                $v = UtilFunction::sign($valid);
                 if ($ua !== $v['ua'] or $sign !== $v['sign']) {
                     exit('PERMISSION DENIED');
                 }
@@ -32,30 +33,6 @@ class Module
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
     }
-
-    //签名
-    private static function sign($valid)
-    {
-        ksort($valid);
-        reset($valid);
-        $validstr = "";
-        foreach ($valid as $k => $v) {
-            $validstr .= $k . $v;
-        }
-        $sign = strtoupper(sha1($validstr));
-        $valid['sign'] = $sign;
-        unset($valid['secret']);
-        return $valid;
-    }
-
-    public function argSort($para)
-    {
-        ksort($para);
-        reset($para);
-
-        return $para;
-    }
-
     /**
      * @param MvcEvent $e
      * @return \Zend\Db\Adapter\Adapter
