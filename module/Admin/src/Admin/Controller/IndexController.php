@@ -19,6 +19,7 @@ class IndexController extends AdminBaseController
         echo '欢迎您：' . $uid . '号嘉宾！';
 
         $url = $this->getConfig()['url'] . '/v1/index/json';
+        echo $url;
         echo HttpClient::post($url, []);
         return false;
     }

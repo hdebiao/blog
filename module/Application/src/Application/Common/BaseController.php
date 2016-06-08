@@ -92,4 +92,30 @@ class BaseController extends AbstractActionController
     {
         return json_encode($array, $pretty ? (JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) : 0);
     }
+
+
+    protected function dataType($post, $default)
+    {
+        $post = null === $post ? $default : $post;
+        switch (gettype($default)) {
+            case 'boolean':
+                return  (bool)$post;
+            case 'integer':
+                return (int)$post;
+            case 'double':
+                return (float)$post;
+            case 'string':
+                return strval($post);
+            case 'object':
+                if ($post instanceof \DateTime) {
+                    $post->setTimestamp(is_numeric($post) ? $post : strtotime($post));
+                    var_dump($post);
+                    $post = $post->format('Y-m-d H:i:s');
+                }
+                return $post;
+            default:
+                return $post;
+        }
+    }
+
 }
