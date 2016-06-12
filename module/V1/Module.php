@@ -2,7 +2,7 @@
 
 namespace V1;
 
-use Application\Common\UtilFunction;
+use Application\Common\Util\FunctionUtil;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
@@ -24,7 +24,7 @@ class Module
                     exit('PERMISSION DENIED');
                 }
                 $valid = (array)$e->getApplication()->getServiceManager()->get('config')['valid'];
-                $v = UtilFunction::sign($valid);
+                $v = FunctionUtil::sign($valid);
                 if ($ua !== $v['ua'] or $sign !== $v['sign']) {
                     exit('PERMISSION DENIED');
                 }

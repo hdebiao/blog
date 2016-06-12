@@ -1,7 +1,7 @@
 <?php
-namespace Application\Common;
+namespace Application\Common\Util;
 
-class UtilFunction
+class FunctionUtil
 {
         //签名
     public static function sign(array $valid = [])

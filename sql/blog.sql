@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: blog
 -- ------------------------------------------------------
--- Server version	5.6.28-0ubuntu0.15.10.1
+-- Server version	5.7.12-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -46,39 +46,6 @@ LOCK TABLES `blog_admin_user` WRITE;
 /*!40000 ALTER TABLE `blog_admin_user` DISABLE KEYS */;
 INSERT INTO `blog_admin_user` VALUES (1,'wangkang','434911688babdfa00f0a70a6c9aa013c');
 /*!40000 ALTER TABLE `blog_admin_user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `blog_blog`
---
-
-DROP TABLE IF EXISTS `blog_blog`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `blog_blog` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(180) NOT NULL DEFAULT '',
-  `create_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `content` longtext,
-  `views` int(11) NOT NULL DEFAULT '0',
-  `thumbnail` varchar(255) NOT NULL DEFAULT '',
-  `author` varchar(180) NOT NULL DEFAULT '',
-  `typeid` int(11) NOT NULL DEFAULT '0',
-  `comnum` int(11) NOT NULL DEFAULT '0',
-  `is_top` tinyint(1) NOT NULL DEFAULT '0',
-  `tagids` varchar(8192) NOT NULL DEFAULT '',
-  `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `blog_blog`
---
-
-LOCK TABLES `blog_blog` WRITE;
-/*!40000 ALTER TABLE `blog_blog` DISABLE KEYS */;
-/*!40000 ALTER TABLE `blog_blog` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -218,6 +185,40 @@ LOCK TABLES `blog_options` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `blog_post`
+--
+
+DROP TABLE IF EXISTS `blog_post`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `blog_post` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(180) NOT NULL DEFAULT '',
+  `create_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `content` longtext,
+  `views` int(11) NOT NULL DEFAULT '0',
+  `thumbnail` varchar(255) NOT NULL DEFAULT '',
+  `author` varchar(180) NOT NULL DEFAULT '',
+  `typeid` int(11) NOT NULL DEFAULT '0',
+  `comnum` int(11) NOT NULL DEFAULT '0',
+  `is_top` tinyint(1) NOT NULL DEFAULT '0',
+  `tagids` varchar(8192) NOT NULL DEFAULT '',
+  `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blog_post`
+--
+
+LOCK TABLES `blog_post` WRITE;
+/*!40000 ALTER TABLE `blog_post` DISABLE KEYS */;
+INSERT INTO `blog_post` VALUES (1,'','2016-06-08 09:51:59','',0,'','',0,0,0,'',0),(2,'','2016-06-08 09:54:12','',0,'','',0,0,0,'',0),(3,'测试博客','2016-06-08 09:54:23','',0,'','',0,0,0,'',0),(4,'博客测试','2016-06-12 02:13:09','博客内容',0,'','作者',0,0,0,'',0);
+/*!40000 ALTER TABLE `blog_post` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `blog_tag`
 --
 
@@ -276,4 +277,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-05 11:13:08
+-- Dump completed on 2016-06-12 11:48:17

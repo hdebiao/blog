@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Common;
+namespace Application\Common\Controller;
 
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -96,7 +96,7 @@ class BaseController extends AbstractActionController
 
     protected function dataType($post, $default)
     {
-        $post = null === $post ? $default : $post;
+        $post = empty($post) ? $default : $post;
         switch (gettype($default)) {
             case 'boolean':
                 return  (bool)$post;
@@ -105,17 +105,23 @@ class BaseController extends AbstractActionController
             case 'double':
                 return (float)$post;
             case 'string':
-                return strval($post);
-            case 'object':
-                if ($post instanceof \DateTime) {
-                    $post->setTimestamp(is_numeric($post) ? $post : strtotime($post));
-                    var_dump($post);
-                    $post = $post->format('Y-m-d H:i:s');
-                }
-                return $post;
+                return (string)$post;
             default:
                 return $post;
         }
+    }
+
+    protected function filterData($params, $defaults)
+    {
+        $new_params = [];
+        foreach ($defaults as $k => $v) {
+            if (array_key_exists($k, $params)) {
+                $new_params[$k] = $this->dataType($params[$k], $v);
+            } else {
+                $new_params[$k] = $v;
+            }
+        }
+        return $new_params;
     }
 
 }

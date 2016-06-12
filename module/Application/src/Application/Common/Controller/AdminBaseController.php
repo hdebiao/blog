@@ -1,5 +1,5 @@
 <?php
-namespace Application\Common;
+namespace Application\Common\Controller;
 
 class AdminBaseController extends BaseController
 {
