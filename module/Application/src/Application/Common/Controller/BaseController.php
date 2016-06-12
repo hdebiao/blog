@@ -2,6 +2,7 @@
 
 namespace Application\Common\Controller;
 
+use Application\Common\Functions\UtilFunction;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\Controller\AbstractActionController;
 
@@ -105,7 +106,7 @@ class BaseController extends AbstractActionController
             case 'double':
                 return (float)$post;
             case 'string':
-                return (string)$post;
+                return UtilFunction::purify($post);
             default:
                 return $post;
         }

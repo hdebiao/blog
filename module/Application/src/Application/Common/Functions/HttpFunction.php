@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\Common\Util;
+namespace Application\Common\Functions;
 
-class HttpUtil
+class HttpFunction
 {
     public static $valid = [
         'ua' => 'convee-admin-ua',
@@ -25,7 +25,7 @@ class HttpUtil
             CURLOPT_VERBOSE => false,
             CURLOPT_USERAGENT => self::$valid['ua']
         );
-        $post['sign'] = FunctionUtil::sign(self::$valid)['sign'];//签名
+        $post['sign'] = UtilFunction::sign(self::$valid)['sign'];//签名
         $defaults[CURLOPT_POSTFIELDS] = $post;
         curl_setopt_array($ch, $defaults);
         $data = curl_exec($ch);

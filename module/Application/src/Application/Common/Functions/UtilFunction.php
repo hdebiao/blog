@@ -1,7 +1,8 @@
 <?php
-namespace Application\Common\Util;
+namespace Application\Common\Functions;
 
-class FunctionUtil
+
+class UtilFunction
 {
         //签名
     public static function sign(array $valid = [])
@@ -16,5 +17,14 @@ class FunctionUtil
         $valid['sign'] = $sign;
         unset($valid['secret']);
         return $valid;
+    }
+
+    /**
+     * @param $string
+     * @return string
+     */
+    public static function purify($string)
+    {
+        return PurifierFunction::getInstance()->purify($string);
     }
 }
