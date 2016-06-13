@@ -2,7 +2,7 @@
 
 namespace V1;
 
-use Application\Common\Functions\UtilFunction;
+use Base\Common\Functions\UtilFunction;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
@@ -72,7 +72,7 @@ class Module
     {
         return [
             'abstract_factories' => [
-                'Application\Services\CommonControlAppAbstractFactory'
+                'Base\Services\CommonControlAppAbstractFactory'
             ]
         ];
     }

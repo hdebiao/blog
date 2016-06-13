@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 
-use Application\Common\AdminBaseController;
+use Base\Common\Controller\AdminBaseController;
 
 /**
  * 全局设置模块

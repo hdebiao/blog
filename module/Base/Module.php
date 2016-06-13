@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Application;
+namespace Base;
 
 use Zend\Db\Adapter\Adapter;
 use Zend\Mvc\ModuleRouteListener;

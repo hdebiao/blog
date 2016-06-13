@@ -1,5 +1,5 @@
 <?php
-namespace Application\Common\Functions;
+namespace Base\Common\Functions;
 
 
 class UtilFunction

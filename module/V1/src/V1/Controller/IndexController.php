@@ -1,6 +1,6 @@
 <?php
 namespace V1\Controller;
-use Application\Common\Controller\V1BaseController;
+use Base\Common\Controller\V1BaseController;
 
 class IndexController extends V1BaseController
 {

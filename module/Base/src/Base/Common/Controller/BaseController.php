@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\Common\Controller;
+namespace Base\Common\Controller;
 
-use Application\Common\Functions\UtilFunction;
+use Base\Common\Functions\UtilFunction;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\Controller\AbstractActionController;
 

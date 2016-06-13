@@ -2,8 +2,8 @@
 
 namespace V1\Controller;
 
-use Application\Common\Controller\V1BaseController;
-use Application\Common\Functions\UtilFunction;
+use Base\Common\Controller\V1BaseController;
+use Base\Common\Functions\UtilFunction;
 use Zend\Db\Sql\Expression;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Where;

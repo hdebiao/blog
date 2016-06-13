@@ -1,5 +1,5 @@
 <?php
-namespace Application\Services;
+namespace Base\Services;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 class CommonControlAppAbstractFactory implements AbstractFactoryInterface

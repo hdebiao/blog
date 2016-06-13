@@ -3,8 +3,8 @@
 
 namespace Admin\Controller;
 
-use Application\Common\Controller\AdminBaseController;
-use Application\Common\Util\HttpUtil;
+use Base\Common\Controller\AdminBaseController;
+use Base\Common\Functions\HttpFunction;
 
 /**
  * 后台首页
@@ -20,7 +20,7 @@ class IndexController extends AdminBaseController
 
         $url = $this->getConfig()['url'] . '/v1/index/json';
         echo $url;
-        echo HttpUtil::post($url, []);
+        echo HttpFunction::post($url, []);
         return false;
     }
 }

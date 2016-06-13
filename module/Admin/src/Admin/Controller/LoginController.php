@@ -2,7 +2,7 @@
 
 namespace  Admin\Controller;
 
-use Application\Common\AdminBaseController;
+use Base\Common\Controller\AdminBaseController;
 use Zend\View\Model\ViewModel;
 
 /**
