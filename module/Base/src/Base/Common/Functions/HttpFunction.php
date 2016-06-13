@@ -4,14 +4,23 @@ namespace Base\Common\Functions;
 
 class HttpFunction
 {
+    public static $ch;
     public static $valid = [
         'ua' => 'convee-admin-ua',
         'secret' => '17e2721c65c87f0cfd73c5b65b3eaaaf'
     ];
 
+    public static function getCurl()
+    {
+        if (null === static::$ch) {
+            static::$ch = curl_init();
+        }
+        curl_reset(static::$ch);
+        return static::$ch;
+    }
     public static function post($url, array $post = [])
     {
-        $ch = curl_init();
+        $ch = static::getCurl();
         $defaults = array(
             CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
             CURLOPT_POST => 1,
@@ -26,7 +35,7 @@ class HttpFunction
             CURLOPT_USERAGENT => self::$valid['ua']
         );
         $post['sign'] = UtilFunction::sign(self::$valid)['sign'];//签名
-        $defaults[CURLOPT_POSTFIELDS] = $post;
+        $defaults[CURLOPT_POSTFIELDS] = http_build_query($post);
         curl_setopt_array($ch, $defaults);
         $data = curl_exec($ch);
         if ($data) {
