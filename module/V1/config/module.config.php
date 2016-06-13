@@ -33,4 +33,8 @@ return array(
             ),
         ),
     ),
+    'abstract_factories' => [
+        'Base\Services\CommonControlAppAbstractFactory'
+    ]
 );
+

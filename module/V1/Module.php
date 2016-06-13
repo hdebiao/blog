@@ -18,9 +18,9 @@ class Module
             $controller = $routes['controller'];
             if (strpos($controller, 'V1') === 0) {
                 header('Content-Type:application/json;charset=UTF-8');
-                $ua = $_SERVER['HTTP_USER_AGENT'];
-                $sign = $_POST['sign'];
-                if (!isset($ua) or !isset($sign)) {
+                $ua = array_key_exists('HTTP_USER_AGENT', $_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : '';
+                $sign = array_key_exists('sign', $_POST) ? $_POST['sign'] : '';
+                if (empty($ua) or empty($sign)) {
                     exit('PERMISSION DENIED');
                 }
                 $valid = (array)$e->getApplication()->getServiceManager()->get('config')['valid'];
@@ -68,12 +68,5 @@ class Module
             ),
         );
     }
-    public function getControllerConfig()
-    {
-        return [
-            'abstract_factories' => [
-                'Base\Services\CommonControlAppAbstractFactory'
-            ]
-        ];
-    }
+
 }
