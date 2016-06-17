@@ -5,6 +5,7 @@ namespace Admin\Controller;
 
 use Base\Common\Controller\AdminBaseController;
 use Base\Common\Functions\HttpFunction;
+use Zend\View\Model\ViewModel;
 
 /**
  * 后台首页
@@ -16,9 +17,11 @@ class IndexController extends AdminBaseController
     public function indexAction()
     {
         $uid = $_COOKIE['userid'];
-        echo '欢迎您：' . $uid . '号嘉宾！';
         $url = $this->getConfig()['url'] . '/v1/index/json';
-        echo HttpFunction::post($url, []);
-        return false;
+        $json = json_decode(HttpFunction::post($url, []), true);
+        return new ViewModel([
+            'json' => $json,
+            'uid' => $uid
+        ]);
     }
 }
