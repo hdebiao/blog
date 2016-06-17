@@ -2,7 +2,7 @@
 
 namespace Base\Common\Functions;
 
-class PurifierFunction
+class Purifier
 {
     private static $instance;
     private $purifier;

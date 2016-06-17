@@ -2,7 +2,7 @@
 
 namespace Base\Common\Functions;
 
-class HttpFunction
+class Http
 {
     public static $ch;
     public static $valid = [
@@ -34,7 +34,7 @@ class HttpFunction
             CURLOPT_VERBOSE => false,
             CURLOPT_USERAGENT => self::$valid['ua']
         );
-        $post['sign'] = UtilFunction::sign(self::$valid)['sign'];//签名
+        $post['sign'] = Util::sign(self::$valid)['sign'];//签名
         $defaults[CURLOPT_POSTFIELDS] = http_build_query($post);
         curl_setopt_array($ch, $defaults);
         $data = curl_exec($ch);

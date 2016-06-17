@@ -4,7 +4,7 @@
 namespace Admin\Controller;
 
 use Base\Common\Controller\AdminBaseController;
-use Base\Common\Functions\HttpFunction;
+use Base\Common\Functions\Http;
 use Zend\View\Model\ViewModel;
 
 /**
@@ -18,7 +18,7 @@ class IndexController extends AdminBaseController
     {
         $uid = $_COOKIE['userid'];
         $url = $this->getConfig()['url'] . '/v1/index/json';
-        $json = json_decode(HttpFunction::post($url, []), true);
+        $json = json_decode(Http::post($url, []), true);
         return new ViewModel([
             'json' => $json,
             'uid' => $uid

@@ -3,7 +3,7 @@
 namespace V1\Controller;
 
 use Base\Common\Controller\V1BaseController;
-use Base\Common\Functions\UtilFunction;
+use Base\Common\Functions\Util;
 use Zend\Db\Sql\Expression;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Where;
@@ -57,7 +57,7 @@ class PostController extends V1BaseController
         $where = new Where();
         foreach ($params as $k => $v) {
             if ($k === 'title' && !empty($v)) {
-                $v = UtilFunction::purify($v);
+                $v = Util::purify($v);
                 $where->like('title', '%' . $v . '%');
             }
         }

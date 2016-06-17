@@ -2,7 +2,7 @@
 namespace Base\Common\Functions;
 
 
-class UtilFunction
+class Util
 {
         //签名
     public static function sign(array $valid = [])
@@ -25,6 +25,6 @@ class UtilFunction
      */
     public static function purify($string)
     {
-        return PurifierFunction::getInstance()->purify($string);
+        return Purifier::getInstance()->purify($string);
     }
 }
