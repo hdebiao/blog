@@ -1,6 +1,6 @@
 <?php
 
-namespace V1Test\Controller;
+namespace ApiTest\Controller;
 
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
@@ -16,12 +16,12 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/v1');
+        $this->dispatch('/api');
         $this->assertResponseStatusCode(200);
 
-        $this->assertModuleName('V1');
-        $this->assertControllerName('V1\Controller\Index');
+        $this->assertModuleName('Api');
+        $this->assertControllerName('Api\Controller\Index');
         $this->assertControllerClass('IndexController');
-        $this->assertMatchedRouteName('v1');
+        $this->assertMatchedRouteName('api');
     }
 }

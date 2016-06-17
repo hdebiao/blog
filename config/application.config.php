@@ -11,7 +11,7 @@ return array(
         'Base',
         'Admin',
         'Blog',
-        'V1'
+        'Api'
     ),
 
     // These are various options for the listeners attached to the ModuleManager

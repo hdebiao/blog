@@ -1,6 +1,6 @@
 <?php
 
-namespace V1\Controller;
+namespace Api\Controller;
 
 use Base\Common\Controller\V1BaseController;
 use Base\Common\Functions\Util;

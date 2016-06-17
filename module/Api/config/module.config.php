@@ -1,16 +1,16 @@
 <?php
 
-namespace V1;
+namespace Api;
 
 return array(
     'router' => array(
         'routes' => array(
-            'v1' => array(
+            'api' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/v1',
+                    'route'    => '/api',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'V1\Controller',
+                        '__NAMESPACE__' => 'Api\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),

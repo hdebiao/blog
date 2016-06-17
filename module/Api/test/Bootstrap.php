@@ -1,6 +1,6 @@
 <?php
 
-namespace V1Test;
+namespace ApiTest;
 
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;

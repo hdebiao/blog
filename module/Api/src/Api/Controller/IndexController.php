@@ -1,5 +1,5 @@
 <?php
-namespace V1\Controller;
+namespace Api\Controller;
 use Base\Common\Controller\V1BaseController;
 
 class IndexController extends V1BaseController

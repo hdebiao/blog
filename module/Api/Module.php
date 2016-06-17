@@ -1,6 +1,6 @@
 <?php
 
-namespace V1;
+namespace Api;
 
 use Base\Common\Functions\Util;
 use Zend\Db\TableGateway\TableGateway;
