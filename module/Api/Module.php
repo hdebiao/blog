@@ -16,7 +16,7 @@ class Module
         $eventManager->attach('route', function (MvcEvent $e) {
             $routes = $e->getRouteMatch()->getParams();
             $controller = $routes['controller'];
-            if (strpos($controller, 'V1') === 0) {
+            if (strpos($controller, 'Api') === 0) {
                 header('Content-Type:application/json;charset=UTF-8');
                 $ua = array_key_exists('HTTP_USER_AGENT', $_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : '';
                 $sign = array_key_exists('sign', $_POST) ? $_POST['sign'] : '';

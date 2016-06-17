@@ -35,7 +35,7 @@ class Bootstrap
                 'module_paths' => $zf2ModulePaths,
             ),
             'modules' => array(
-                'V1'
+                'Api'
             )
         );
 

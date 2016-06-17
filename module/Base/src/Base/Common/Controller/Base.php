@@ -6,7 +6,7 @@ use Base\Common\Functions\Util;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\Controller\AbstractActionController;
 
-class BaseController extends AbstractActionController
+class Base extends AbstractActionController
 {
     public $config;
     public $dbs = [];

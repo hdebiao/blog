@@ -1,14 +1,14 @@
 <?php
 namespace Admin\Controller;
 
-use Base\Common\Controller\AdminBaseController;
+use Base\Common\Controller\AdminBase;
 
 /**
  * 博客标签
  * Class TagController
  * @package Admin\Controller
  */
-class TagController extends AdminBaseController
+class TagController extends AdminBase
 {
     public function indexAction()
     {

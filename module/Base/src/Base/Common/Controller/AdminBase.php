@@ -1,7 +1,7 @@
 <?php
 namespace Base\Common\Controller;
 
-class AdminBaseController extends BaseController
+class AdminBase extends Base
 {
     public static function echoJson($status, $msg, $refer)
     {

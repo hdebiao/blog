@@ -1,7 +1,7 @@
 <?php
 namespace Base\Common\Controller;
 
-class BlogBaseController extends BaseController
+class BlogBase extends Base
 {
     
 }

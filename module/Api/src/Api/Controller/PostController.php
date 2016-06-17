@@ -2,13 +2,13 @@
 
 namespace Api\Controller;
 
-use Base\Common\Controller\V1BaseController;
+use Base\Common\Controller\ApiBase;
 use Base\Common\Functions\Util;
 use Zend\Db\Sql\Expression;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Where;
 
-class PostController extends V1BaseController
+class PostController extends ApiBase
 {
     public function addAction()
     {

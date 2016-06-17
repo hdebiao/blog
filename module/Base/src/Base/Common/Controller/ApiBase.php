@@ -1,7 +1,7 @@
 <?php
 namespace Base\Common\Controller;
 
-class V1BaseController extends BaseController
+class ApiBase extends Base
 {
     public static function echoJson($id, $msg)
     {

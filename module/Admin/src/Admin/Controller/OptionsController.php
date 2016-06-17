@@ -1,14 +1,14 @@
 <?php
 namespace Admin\Controller;
 
-use Base\Common\Controller\AdminBaseController;
+use Base\Common\Controller\AdminBase;
 
 /**
  * 全局设置模块
  * Class OptionsController
  * @package Admin\Controller
  */
-class OptionsController extends AdminBaseController
+class OptionsController extends AdminBase
 {
     public function indexAction()
     {

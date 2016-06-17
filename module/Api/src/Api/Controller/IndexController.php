@@ -1,8 +1,8 @@
 <?php
 namespace Api\Controller;
-use Base\Common\Controller\V1BaseController;
+use Base\Common\Controller\ApiBase;
 
-class IndexController extends V1BaseController
+class IndexController extends ApiBase
 {
 
     public function indexAction()
