@@ -2,13 +2,13 @@
 namespace Admin\Controller;
 
 use Base\Common\Controller\AdminBase;
-
+use Base\Common\Functions\Http;
 /**
  * 博客文章模块
  * Class BlogController
  * @package Admin\Controller
  */
-class BlogController extends AdminBase
+class PostController extends AdminBase
 {
     public function indexAction()
     {
@@ -18,7 +18,9 @@ class BlogController extends AdminBase
 
     public function listAction()
     {
-        echo sprintf('%s:%s', __FUNCTION__, __CLASS__);
+        $data = (array)json_decode(file_get_contents('php://input'), true);
+        $url = $this->getApi() . '/post/list';
+        echo Http::post($url, $data);
         return false;
     }
 

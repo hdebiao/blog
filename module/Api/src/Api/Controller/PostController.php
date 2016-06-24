@@ -58,7 +58,7 @@ class PostController extends ApiBase
         foreach ($params as $k => $v) {
             if ($k === 'title' && !empty($v)) {
                 $v = Util::purify($v);
-                $where->like('title', '%' . $v . '%');
+                $where->like('blog_post.title', '%' . $v . '%');
             }
         }
         try {
@@ -77,7 +77,7 @@ class PostController extends ApiBase
                             'a.id=blog_post.typeid',
                             ['cate_title' => 'title'],
                             $select::JOIN_LEFT
-                        )->where($where)->order('id desc')->offset($offset)->limit($rpp);
+                        )->where($where)->order('blog_post.id desc')->offset($offset)->limit($rpp);
                 })->toArray();
             $data = [
                 'data' => $posts,

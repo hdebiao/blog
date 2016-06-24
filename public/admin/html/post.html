@@ -1,0 +1,30 @@
+<div class="main">
+    <div id="list" class="view">
+        <div class="header">
+            <input type="text" ng-model="title" class="search-box input-lg">
+            <input type="button" ng-click="search(title)" value="搜索" class="btn-left">
+            <a class="btn-right" href="#/post-add">添加文章</a>
+        </div>
+        <form class="content">
+            <table>
+                <tr>
+                    <th class="c1">ID</th>
+                    <th>标题</th>
+                    <th>创建时间</th>
+                    <th>作者</th>
+                    <th>操作</th>
+                </tr>
+                <tr ng-repeat="p in post">
+                    <td>{{p.id}}</td>
+                    <td>{{p.title}}</td>
+                    <td>{{p.create_time}}</td>
+                    <td>{{p.author}}</td>
+                    <td>
+                        <a href="#/post-edit?id={{p.id}}">修改</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <paginator conf="paginationConf"></paginator>
+    </div>
+</div>

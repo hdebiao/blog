@@ -125,4 +125,10 @@ class Base extends AbstractActionController
         return $new_params;
     }
 
+
+    public function getApi()
+    {
+        return $this->getConfig()['url'] . '/api';
+    }
+
 }
