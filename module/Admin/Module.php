@@ -72,7 +72,7 @@ class Module
     {
         return [
             'abstract_factories' => [
-                'Application\Services\CommonControlAppAbstractFactory'
+                'Base\Services\CommonControlAppAbstractFactory'
             ]
         ];
     }

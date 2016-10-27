@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>管理后台</title>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-file-upload-all.min.js"></script>
+    <script src="/js/angular-route.min.js"></script>
+    <script src="/admin/js/app.js"></script>
+    <script src="/admin/js/controllers.js"></script>
+    <script src="/admin/js/pagination.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/admin/css/style.css" />
+</head>
+<body>
+<div id="top-menu">
+    <div class="logo">管理后台</div>
+    <ul class="top-menu">
+        <ul>
+            <li><a href="#/">首页</a></li>
+            <li><a href="#/post">文章列表</a></li>
+        </ul>
+    </ul>
+    <div class="account">你好，<?php echo $this->json['name'];?><a class="login" href="login/logout">退出</a></div>
+</div>
+<div ng-app="adminApp" ng-view></div>
+</body>
+</html>

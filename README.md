@@ -30,6 +30,13 @@ server {
 	location @orig {
 		rewrite ^/(.*)$ /index.php last;
 	}
+  location ~* \.(?:ico|css|js|json|gif|jpe?g|png)$ {
+      etag off;
+      expires 365d;
+      add_header Pragma public;
+      add_header Cache-Control "public";
+      try_files $uri @orig;
+  }
 	location ~ \.php$ {
    		fastcgi_split_path_info ^(.+\.php)(/.+)$;
 	   	fastcgi_pass 127.0.0.1:9000;

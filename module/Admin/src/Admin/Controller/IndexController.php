@@ -3,27 +3,31 @@
 
 namespace Admin\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
+use Base\Common\Controller\AdminBase;
+use Base\Common\Functions\Http;
 use Zend\View\Model\ViewModel;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Db\Sql\Sql;
 use Zend\Db\Sql\Select;
 
-class IndexController extends AbstractActionController
+/**
+ * 后台首页
+ * Class IndexController
+ * @package Admin\Controller
+ */
+class IndexController extends AdminBase
 {
     public function indexAction()
     {
         $uid = $_COOKIE['userid'];
-        echo '欢迎您：' . $uid . '号嘉宾！';
 
-        $tm = $this->getTable('blog_admin_user');
-        $a  = $tm->select(array('uid'=> 1))->current()->offsetGet('password');
-        $b  = $tm->select(array('uid'=> 1))->getArrayObjectPrototype();
-        $this->p($a);
-        $c = new Select();
-        return false;
-//        return new ViewModel();
+        $url = $this->getConfig()['url'] . '/api/index/json';
+        $json = json_decode(Http::post($url, []), true);
+        return new ViewModel([
+            'json' => $json,
+            'uid' => $uid
+        ]);
     }
 
 
